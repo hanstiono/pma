@@ -1,9 +1,8 @@
 #!/bin/bash
 
-LATEST_VERSION=$(curl -sS 'https://api.github.com/repos/phpmyadmin/phpmyadmin/releases/latest' | awk -F '"' '/tag_name/{print $4}')
-DOWNLOAD_URL="https://api.github.com/repos/phpmyadmin/phpmyadmin/tarball/$LATEST_VERSION"
+DOWNLOAD_URL="https://api.github.com/repos/phpmyadmin/phpmyadmin/tarball/RELEASE_4_9_5"
 
-echo "Downloading phpMyAdmin $LATEST_VERSION"
+echo "Downloading phpMyAdmin 4.9.5"
 wget $DOWNLOAD_URL -q --show-progress -O 'phpmyadmin.tar.gz'
 
 mkdir phpmyadmin && tar xf phpmyadmin.tar.gz -C phpmyadmin --strip-components 1
